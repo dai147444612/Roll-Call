@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.inet.code.mapper.PeopleMapper">
+    <select id="getPeople" parameterType="java.lang.String" resultType="com.inet.code.entity.po.People">
+        select id,classes,name,isHave,count from people where classes=#{classes};
+    </select>
+    <select id="getClasses" resultType="java.lang.String">
+        select classes from  people group by classes
+    </select>
+    <update id="hit" parameterType="java.lang.Integer" >
+        update people set isHave=1 where id=#{studentId}
+    </update>
+</mapper>
